@@ -20,7 +20,7 @@ function useRepairKits(x){
     return repairKits;
 }
 
-console.log(useRepairKits(1));
+console.log(useRepairKits(0));
 
 function buyRepairKits(x){
     if (x >= 0 && credits >= 50 ){
@@ -30,7 +30,7 @@ function buyRepairKits(x){
     return credits;
     return repairKits;
 }
-console.log(buyRepairKits(150));
+console.log(buyRepairKits(0));
 
 function toTakeDamage(x){
     spaceshipHealth = spaceshipHealth - x;
@@ -40,4 +40,11 @@ function toTakeDamage(x){
     }
     return spaceshipHealth;
 }
-console.log(toTakeDamage(10));
+console.log(toTakeDamage(0));
+
+function resetGame(){
+    spaceshipHealth = 100;
+    credits = 500;
+    repairKits = 5;
+}
+resetGame();
