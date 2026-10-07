@@ -31,3 +31,13 @@ function buyRepairKits(x){
     return repairKits;
 }
 console.log(buyRepairKits(150));
+
+function toTakeDamage(x){
+    spaceshipHealth = spaceshipHealth - x;
+    if(spaceshipHealth <= 0){
+        spaceshipHealth = 0;
+        console.log("Game over!");
+    }
+    return spaceshipHealth;
+}
+console.log(toTakeDamage(10));
