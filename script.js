@@ -22,3 +22,12 @@ function useRepairKits(x){
 
 console.log(useRepairKits(1));
 
+function buyRepairKits(x){
+    if (x >= 0 && credits >= 50 ){
+        repairKits = repairKits + x / 50;
+        credits = credits - x;
+    }
+    return credits;
+    return repairKits;
+}
+console.log(buyRepairKits(150));
