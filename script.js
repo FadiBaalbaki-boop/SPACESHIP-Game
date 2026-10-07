@@ -11,3 +11,14 @@ function spaceshipStatus(){
     console.log("repair: " + repairKits);
 }
 spaceshipStatus();
+
+function useRepairKits(x){
+    if(x > 0 && x <= repairKits){
+        repairKits = repairKits - x;
+
+    }
+    return repairKits;
+}
+
+console.log(useRepairKits(1));
+
