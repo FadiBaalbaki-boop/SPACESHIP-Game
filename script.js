@@ -13,24 +13,23 @@ function spaceshipStatus(){
 spaceshipStatus();
 
 function useRepairKits(x){
-    if(x > 0 && x <= repairKits){
+    if(spaceshipHealth < 100 && repairKits > 0){
         repairKits = repairKits - x;
+        spaceshipHealth = 100;
 
     }
-    return repairKits;
 }
 
-console.log(useRepairKits(0));
+
 
 function buyRepairKits(x){
-    if (x >= 0 && credits >= 50 ){
-        repairKits = repairKits + x / 50;
-        credits = credits - x;
+    if (credits >= 50 ){
+        repairKits = repairKits + x;
+        credits = credits - 50;
     }
-    return credits;
-    return repairKits;
+   
 }
-console.log(buyRepairKits(0));
+
 
 function toTakeDamage(x){
     spaceshipHealth = spaceshipHealth - x;
