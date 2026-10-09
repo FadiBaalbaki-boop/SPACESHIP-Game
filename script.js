@@ -5,8 +5,8 @@ let repairKits = 5;
 
 const spaceship_tableRef = document.getElementById('spaceship_table');
 const playButtonRef = document.getElementById('playButton');
-const buttonDamageRef = document.getElementById('buttonDamage');
 const inputDamageRef = document.getElementById('inputDamage');
+const gameOverRef = document.getElementById('gameOver');
 
 
 
@@ -40,12 +40,6 @@ function renderStatus(){
      <th>Repair: </th>
      <td>${repairKits}</td>
      </tr>`;
-
-    //console.log("Status: ");
-    //console.log("Name: " + spaceshipName);
-    //console.log("Health: " + spaceshipHealth);
-    //console.log("credits: " + credits);
-    //console.log("repair: " + repairKits);
 }
 
 
@@ -68,15 +62,20 @@ function buyRepairKits(x){
 }
 
 
-function toTakeDamage(x){
-    spaceshipHealth = spaceshipHealth - x;
+function toTakeDamage(){
+    let damage = Number(inputDamageRef.value);
+    spaceshipHealth = spaceshipHealth - damage;
+    inputDamageRef.value = "";
+
+
     if(spaceshipHealth <= 0){
         spaceshipHealth = 0;
-        console.log("Game over!");
+        gameOverRef.innerHTML = "Game Over!";
+
     }
-    return spaceshipHealth;
+    renderStatus();
 }
-console.log(toTakeDamage(0));
+
 
 function resetGame(){
     spaceshipHealth = 100;

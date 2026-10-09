@@ -14,12 +14,13 @@
         <button onclick="startGame()" id="playButton">Spiel beginnen</button>
     </header>
     <section class="game" id="game" hidden>
+        <div class="gameover" id="gameOver"></div>
     <table id="spaceship_table" class="spaceship_status">
 
     </table>
     <div class="input_button">
-    <input class="input" id="inputDamage" type="text">
-    <button class="button" id="buttonDamage">Schaden hinzufügen</button>
+    <input class="input" id="inputDamage" type="number">
+    <button onclick="toTakeDamage()" class="button">Schaden hinzufügen</button>
     </div>
     </section>
     
