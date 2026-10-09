@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: space-around;
+    align-items: center;
+    background: 
+    radial-gradient(ellipse at 20% 20%, #673ab788, transparent 35%),
+    radial-gradient(ellipse at 80% 25%, #00bcd488, transparent 30%),
+    radial-gradient(ellipse at 55% 85%, #e91e6380, transparent 40%),
+    linear-gradient(135deg, #050816, #101a3a, #070918);
+}
+header#start[hidden]{
+    display: none;
+}
+
+h1{
+    font-size: 150px;
+    color: whitesmoke;
+    text-shadow: 0 0 15px whitesmoke;
+}
+
+header img{
+    width: 70%;
+    object-fit: cover;
+    border: 5px solid #55dfff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00bfff99;
+}
+
+header button{
+    padding: 50px 100px;
+    background: 
+    radial-gradient(ellipse at 20% 20%, #673ab788, transparent 35%),
+    radial-gradient(ellipse at 80% 25%, #00bcd488, transparent 30%),
+    radial-gradient(ellipse at 55% 85%, #e91e6380, transparent 40%),
+    linear-gradient(135deg, #050816, #101a3a, #070918);
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+header button:active{
+    transform: translateY(4px);
+
+}
+
+.game{
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background: 
+    radial-gradient(ellipse at 20% 20%, #673ab788, transparent 35%),
+    radial-gradient(ellipse at 80% 25%, #00bcd488, transparent 30%),
+    radial-gradient(ellipse at 55% 85%, #e91e6380, transparent 40%),
+    linear-gradient(135deg, #050816, #101a3a, #070918);
+}
+
+
+
+.spaceship_status{
+    display: flex;
+    justify-content: center; 
+     align-items: center;
+}
+
+.spaceship_status tbody{
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: linear-gradient(80deg, purple, blue);
+    border-radius: 8px;
+    width: 40%;
+}
+
+.spaceship_status tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.spaceship_status th, td{
+    font-size: 50px;
+    padding: 30px;
+    color: white;
+}
+
+.spaceship_status td{
+    width: 200px;
+    border: 2px solid #00bfff99;
+}
+
+.input{
+    width: 200px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.button{
+    width: 200px;
+    padding: 16px;
+    font-size: 20px;
+}
+
+.input_button{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}

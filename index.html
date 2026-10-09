@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body onload="init()">
-    <table id="spaceship_table">
+    <header id="start">
+        <h1>Spaceship</h1>
+        <img src="./assets/img/raumschiff.png" alt="raumschiff">
+        <button onclick="startGame()" id="playButton">Spiel beginnen</button>
+    </header>
+    <section class="game" id="game" hidden>
+    <table id="spaceship_table" class="spaceship_status">
 
     </table>
+    <div class="input_button">
+    <input class="input" id="inputDamage" type="text">
+    <button class="button" id="buttonDamage">Schaden hinzufügen</button>
+    </div>
+    </section>
     
 </body>
 </html>

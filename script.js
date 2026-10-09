@@ -4,9 +4,20 @@ let credits = 500;
 let repairKits = 5;
 
 const spaceship_tableRef = document.getElementById('spaceship_table');
+const playButtonRef = document.getElementById('playButton');
+const buttonDamageRef = document.getElementById('buttonDamage');
+const inputDamageRef = document.getElementById('inputDamage');
+
+
 
 function init(){
     renderStatus();
+}
+
+function startGame(){
+    document.getElementById('start').hidden = true;
+    document.getElementById('game').hidden = false;
+    
 }
 
 function renderStatus(){
