@@ -3,14 +3,40 @@ let spaceshipHealth = 100;
 let credits = 500;
 let repairKits = 5;
 
-function spaceshipStatus(){
-    console.log("Status: ");
-    console.log("Name: " + spaceshipName);
-    console.log("Health: " + spaceshipHealth);
-    console.log("credits: " + credits);
-    console.log("repair: " + repairKits);
+const spaceship_tableRef = document.getElementById('spaceship_table');
+
+function init(){
+    renderStatus();
 }
-spaceshipStatus();
+
+function renderStatus(){
+
+    spaceship_tableRef.innerHTML = 
+    `<th>Status: </th>
+     <tr>
+     <th>Name:</th>
+     <td>${spaceshipName}</td>
+     </tr>
+     <tr>
+     <th>Health: </th>
+     <td>${spaceshipHealth}</td>
+     </tr>
+     <tr>
+     <th>Credits: </th>
+     <td>${credits}</td>
+     </tr>
+     <tr>
+     <th>Repair: </th>
+     <td>${repairKits}</td>
+     </tr>`;
+
+    //console.log("Status: ");
+    //console.log("Name: " + spaceshipName);
+    //console.log("Health: " + spaceshipHealth);
+    //console.log("credits: " + credits);
+    //console.log("repair: " + repairKits);
+}
+
 
 function useRepairKits(x){
     if(spaceshipHealth < 100 && repairKits > 0){
