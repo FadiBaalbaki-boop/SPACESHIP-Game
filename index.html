@@ -18,9 +18,22 @@
     <table id="spaceship_table" class="spaceship_status">
 
     </table>
+    <div class="action-box">
     <div class="input_button">
     <input class="input" id="inputDamage" type="number">
     <button onclick="toTakeDamage()" class="button">Schaden hinzufügen</button>
+    </div>
+    <div class="input_button">
+        <input class="input" id="inputBuyKits" type="number">
+        <button onclick="buyRepairKits()" class="button">RepairKits kaufen</button>
+    </div>
+    <div class="input_button">
+        <input class="input" id="inputUseKits" type="number">
+        <button onclick="useRepairKits()" class="button">RepairKits benutzen</button>
+    </div>
+    </div>
+    <div id="error" class="error">
+
     </div>
     </section>
     

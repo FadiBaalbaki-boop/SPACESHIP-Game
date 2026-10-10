@@ -7,6 +7,9 @@ const spaceship_tableRef = document.getElementById('spaceship_table');
 const playButtonRef = document.getElementById('playButton');
 const inputDamageRef = document.getElementById('inputDamage');
 const gameOverRef = document.getElementById('gameOver');
+const errorRef = document.getElementById('error');
+const inputBuyKitsRef = document.getElementById('inputBuyKits');
+const inputUseKitsRef = document.getElementById('inputUseKits');
 
 
 
@@ -43,21 +46,37 @@ function renderStatus(){
 }
 
 
-function useRepairKits(x){
-    if(spaceshipHealth < 100 && repairKits > 0){
-        repairKits = repairKits - x;
-        spaceshipHealth = 100;
+function useRepairKits(){
+    let count = Number(inputUseKitsRef.value);
+    inputUseKitsRef.value = "";
 
+    if(spaceshipHealth < 100 && repairKits > 0){
+        repairKits = repairKits - count;
+        spaceshipHealth = 100;
+    }else if(repairKits <= 0){
+        errorRef.innerHTML = "Du hast keine RepairKits mehr!"
     }
+    renderStatus();
 }
 
 
 
-function buyRepairKits(x){
-    if (credits >= 50 ){
-        repairKits = repairKits + x;
-        credits = credits - 50;
+function buyRepairKits(){
+    let count = Number(inputBuyKitsRef.value);
+    const price = 75;
+    inputBuyKitsRef.value = "";
+
+    if (credits >= price ){
+        repairKits = repairKits + count;
+        credits = credits - price;
+    }else if(credits <= 75){
+        errorRef.innerHTML = "Du hast nicht genügend Geld!";
     }
+
+    
+        
+    
+   renderStatus();
    
 }
 
@@ -71,10 +90,12 @@ function toTakeDamage(){
     if(spaceshipHealth <= 0){
         spaceshipHealth = 0;
         gameOverRef.innerHTML = "Game Over!";
-
     }
     renderStatus();
-}
+    }
+    
+    
+
 
 
 function resetGame(){

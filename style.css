@@ -114,14 +114,27 @@ header button:active{
 }
 
 .input_button{
+    height: 100px;
     display: flex;
     gap: 16px;
     justify-content: center;
+}
+.action-box{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 .gameover{
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
+    color: white;
+}
+.error{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
     color: white;
 }
