@@ -111,6 +111,14 @@ header button:active{
     width: 200px;
     padding: 16px;
     font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 5px solid #55dfff;
+    background: 
+    radial-gradient(ellipse at 20% 20%, #673ab788, transparent 35%),
+    radial-gradient(ellipse at 80% 25%, #00bcd488, transparent 30%),
+    radial-gradient(ellipse at 55% 85%, #e91e6380, transparent 40%),
+    linear-gradient(135deg, #050816, #101a3a, #070918);
 }
 
 .input_button{

@@ -63,21 +63,16 @@ function useRepairKits(){
 
 function buyRepairKits(){
     let count = Number(inputBuyKitsRef.value);
-    const price = 75;
+    const price = 50;
     inputBuyKitsRef.value = "";
 
-    if (credits >= price ){
+    if (credits >= price){
         repairKits = repairKits + count;
         credits = credits - price;
-    }else if(credits <= 75){
+    }else if(credits <= 0){
         errorRef.innerHTML = "Du hast nicht genügend Geld!";
     }
-
-    
-        
-    
-   renderStatus();
-   
+   renderStatus();  
 }
 
 
