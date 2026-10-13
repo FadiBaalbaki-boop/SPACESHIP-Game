@@ -7,10 +7,9 @@
     <script defer src="./script.js"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
-<body onload="init()">
+<body  onload="init()">
     <header id="start">
         <h1>Spaceship</h1>
-        <img src="./assets/img/raumschiff.png" alt="raumschiff">
         <button onclick="startGame()" id="playButton">Spiel beginnen</button>
     </header>
     <section class="game" id="game" hidden>
@@ -31,9 +30,19 @@
         <input class="input" id="inputUseKits" type="number">
         <button onclick="useRepairKits()" class="button">RepairKits benutzen</button>
     </div>
+    <div class="input_button">
+        <button class="button" onclick="buySchild()">Schild Kaufen</button>
+        <button class="button" onclick="useSchild()">Schild benutzen</button>
+    </div>
+   
     </div>
     <div id="error" class="error">
 
+    </div>
+    <div id="inventory">
+        <ul id="inventoryList">
+
+        </ul>
     </div>
     </section>
     

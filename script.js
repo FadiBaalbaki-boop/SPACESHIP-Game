@@ -10,6 +10,9 @@ const gameOverRef = document.getElementById('gameOver');
 const errorRef = document.getElementById('error');
 const inputBuyKitsRef = document.getElementById('inputBuyKits');
 const inputUseKitsRef = document.getElementById('inputUseKits');
+const inventoryListRef = document.getElementById('inventoryList');
+
+let itemArray = [];
 
 
 
@@ -24,6 +27,12 @@ function startGame(){
 }
 
 function renderStatus(){
+    const repairkitCount = itemArray.filter(item => item === "Reparaturkit").length;
+
+    inventoryListRef.innerHTML = "";
+    for (let i = 0; i < itemArray.length; i++){
+        inventoryListRef.innerHTML  += "<li>" + itemArray[i] + "</li>";
+    }
 
     spaceship_tableRef.innerHTML = 
     `<th>Status: </th>
@@ -40,36 +49,60 @@ function renderStatus(){
      <td>${credits}</td>
      </tr>
      <tr>
-     <th>Repair: </th>
-     <td>${repairKits}</td>
+     <th>Inventar: </th>
+     <td>${repairkitCount}</td>
      </tr>`;
 }
 
 
 function useRepairKits(){
-    let count = Number(inputUseKitsRef.value);
+    const kitIndex = itemArray.indexOf("Reparaturkit");
+
     inputUseKitsRef.value = "";
 
-    if(spaceshipHealth < 100 && repairKits > 0){
-        repairKits = repairKits - count;
+    if(spaceshipHealth < 100 && kitIndex >= 0){
+        itemArray.splice(kitIndex, 1);
         spaceshipHealth = 100;
-    }else if(repairKits <= 0){
+        errorRef.innerHTML = "";
+    }else if(kitIndex < 0){
         errorRef.innerHTML = "Du hast keine RepairKits mehr!"
     }
     renderStatus();
 }
 
+function buySchild(){
+    itemArray.push("Schild")
+    renderStatus();
+}
+
+function useSchild(){
+    const schildindex = itemArray.indexOf("Schild");
+    
+    if (schildindex >= 0){
+        itemArray.splice(schildindex, 1);
+        errorRef.innerHTML = "";
+
+    }else{
+        errorRef.innerHTML = "Du Hast Kein Schild!";
+    }
+    renderStatus();
+}
 
 
 function buyRepairKits(){
     let count = Number(inputBuyKitsRef.value);
     const price = 50;
+    const totalPrice = price * count;
+
     inputBuyKitsRef.value = "";
 
-    if (credits >= price){
-        repairKits = repairKits + count;
-        credits = credits - price;
-    }else if(credits <= 0){
+    if (credits > 0 && credits >= totalPrice){
+        for (let i = 0; i < count; i++){
+            itemArray.push("Reparaturkit");
+        }
+        credits = credits - totalPrice;
+        errorRef.innerHTML = "";
+    }else{
         errorRef.innerHTML = "Du hast nicht genügend Geld!";
     }
    renderStatus();  
@@ -78,6 +111,10 @@ function buyRepairKits(){
 
 function toTakeDamage(){
     let damage = Number(inputDamageRef.value);
+
+    if(itemArray.includes("Schild")){
+        damage = damage * 0.5;
+    }
     spaceshipHealth = spaceshipHealth - damage;
     inputDamageRef.value = "";
 
